@@ -1,0 +1,33 @@
+# kafka 消费者配置
+kafkaConsumer:
+  # 以逗号分隔的列表形式连接到的Kafka引导代理
+  brokers: 199.199.199.247:9092
+  # Kafka 消费者 分组定义
+  group: dev
+  # Kafka 集群版本号
+  version: 2.4.1
+  # 逗号分隔列表使用的 Kafka 主题
+  topics: dev
+  # 用户组分区分配策略 (range, roundrobin, sticky)
+  assignor: range
+  # Kafka 消费者 初始消费 offset from oldest
+  oldest: true
+  # Sarama logging
+  verbose: false
+# mysql 配置
+mysql:
+  host: 199.199.199.215
+  port: 3306
+  databases: assets_manage
+  username: mysky
+  password: mysky
+  charset: utf8
+  maxOpen: 10 #最大连接数 可不填
+  maxIdle: 5 #闲置连接数 可不填
+  maxLifetime: 100 #最大连接周期 单位(秒) 可不填
+
+# runtime 文件夹地址 文件夹不存在 会自动生成 如果没有 配置 runtime 文件夹 就在当前进程目录下创建 runtime 文件夹 可以递归创建文件夹
+runtime_dir: /home/cloud/work/golang/table/runtime
+
+# runtime 文件下 记录的日志文件名
+logger_file_name: logs.log
